@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
+
+const monitoramentos = 3
+const delay = 5
 
 func main() {
 
@@ -53,14 +57,17 @@ func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
 
-	//fmt.Println(sites)
-
-	//for i := 0; i < len(sites); i++ {
-	for i, site := range sites {
-		fmt.Println("Estou passando na posição ", i, " do meu slice e essa posição tem o site: ", site)
+	for i := 0; i < monitoramentos; i++ {
+		for i, site := range sites {
+			fmt.Println("Testando site: ", i, " : ", site)
+			testaSite(site)
+		}
+		time.Sleep(delay * time.Second)
+		fmt.Println("")
 	}
+}
 
-	site := "https://random-status-code.herokuapp.com/"
+func testaSite(site string) {
 	resp, _ := http.Get(site)
 
 	if resp.StatusCode == 200 {
