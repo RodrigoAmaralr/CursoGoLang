@@ -8,7 +8,7 @@ type ContaCorrente struct {
 }
 
 func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) bool {
-	if valorDaTransferencia < c.Saldo && valorDaTransferencia > 0 {
+	if valorDaTransferencia <= c.Saldo && valorDaTransferencia > 0 {
 		c.Saldo -= valorDaTransferencia
 		contaDestino.Depositar(valorDaTransferencia)
 		return true

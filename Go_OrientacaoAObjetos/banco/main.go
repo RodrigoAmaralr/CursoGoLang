@@ -10,8 +10,6 @@ import (
 	"fmt"
 )
 
-//import "Go_OrientacaoAObjetos/banco/contas"
-
 func main() {
 	// contaDoRodrigo := contaCorrente{}
 	// contaDoRodrigo.titular = "Rodrigo"
@@ -25,9 +23,9 @@ func main() {
 	// fmt.Println(status, valor)
 
 	contaDaSilvia := contas.ContaCorrente{Titular: "Silvia", Saldo: 300}
-	contaDoGustavo := contas.ContaCorrente{Titular: "Gustavo", Saldo: 100}
+	contaDoGustavo := contas.ContaCorrente{Titular: "Gustavo", Saldo: 200}
 
-	status := contaDoGustavo.Transferir(-200, &contaDaSilvia)
+	status := contaDoGustavo.Transferir(200, &contaDaSilvia)
 	fmt.Println(status)
 
 	fmt.Println(contaDaSilvia)
