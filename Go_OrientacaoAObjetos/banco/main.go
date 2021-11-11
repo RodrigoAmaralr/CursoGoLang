@@ -1,7 +1,12 @@
 package main
 
+/* Comandos necessario para incluir o contaCorrente.go
+PS C:\Users\Rodrigo\go\src\CursoGoLang\Go_OrientacaoAObjetos\banco> go mod init CursoGoLang\Go_OrientacaoAObjetos\banco
+PS C:\Users\Rodrigo\go\src\CursoGoLang\Go_OrientacaoAObjetos\banco>go mod tidy
+*/
+
 import (
-	"CursoGoLang/src/Go_OrientacaoAObjetos/banco/contas"
+	"CursoGoLang/Go_OrientacaoAObjetos/banco/contas"
 	"fmt"
 )
 
