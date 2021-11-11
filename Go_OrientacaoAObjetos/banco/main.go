@@ -1,8 +1,8 @@
 package main
 
 import (
+	"CursoGoLang/src/Go_OrientacaoAObjetos/banco/contas"
 	"fmt"
-	//"Go_OrientacaoAObjetos/banco/contas"
 )
 
 //import "Go_OrientacaoAObjetos/banco/contas"
@@ -19,8 +19,8 @@ func main() {
 	// status, valor := contaDoRodrigo.depositar(200)
 	// fmt.Println(status, valor)
 
-	contaDaSilvia := contas.contaCorrente{Titular: "Silvia", Saldo: 300}
-	contaDoGustavo := contas.contaCorrente{Titular: "Gustavo", Saldo: 100}
+	contaDaSilvia := contas.ContaCorrente{Titular: "Silvia", Saldo: 300}
+	contaDoGustavo := contas.ContaCorrente{Titular: "Gustavo", Saldo: 100}
 
 	status := contaDoGustavo.Transferir(-200, &contaDaSilvia)
 	fmt.Println(status)

@@ -1,23 +1,23 @@
 package contas
 
-type contaCorrente struct {
+type ContaCorrente struct {
 	Titular       string
 	NumeroAgencia int
 	NumeroConta   int
 	Saldo         float64
 }
 
-func (c *contaCorrente) Transferir(valorDaTransferencia float64, contaDestino *contaCorrente) bool {
+func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) bool {
 	if valorDaTransferencia < c.Saldo && valorDaTransferencia > 0 {
 		c.Saldo -= valorDaTransferencia
-		contaDestino.depositar(valorDaTransferencia)
+		contaDestino.Depositar(valorDaTransferencia)
 		return true
 	} else {
 		return false
 	}
 }
 
-func (c *contaCorrente) sacar(valorDoSaque float64) string {
+func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.Saldo
 	if podeSacar {
 		c.Saldo -= valorDoSaque
@@ -27,7 +27,7 @@ func (c *contaCorrente) sacar(valorDoSaque float64) string {
 	}
 }
 
-func (c *contaCorrente) depositar(valorDoDeposito float64) (string, float64) {
+func (c *ContaCorrente) Depositar(valorDoDeposito float64) (string, float64) {
 	podeDepositar := valorDoDeposito > 0
 	if podeDepositar {
 		c.Saldo += valorDoDeposito
