@@ -2,45 +2,29 @@ package main
 
 import (
 	"fmt"
+	//"Go_OrientacaoAObjetos/banco/contas"
 )
 
-type contaCorrente struct {
-	titular       string
-	numeroAgencia int
-	numeroConta   int
-	saldo         float64
-}
+//import "Go_OrientacaoAObjetos/banco/contas"
 
 func main() {
-	contaDoRodrigo := contaCorrente{}
-	contaDoRodrigo.titular = "Rodrigo"
-	contaDoRodrigo.saldo = 500
-	fmt.Println(contaDoRodrigo.saldo)
+	// contaDoRodrigo := contaCorrente{}
+	// contaDoRodrigo.titular = "Rodrigo"
+	// contaDoRodrigo.saldo = 500
+	// fmt.Println(contaDoRodrigo.saldo)
 
-	fmt.Println(contaDoRodrigo.sacar(200))
-	fmt.Println(contaDoRodrigo.saldo)
+	// fmt.Println(contaDoRodrigo.sacar(200))
+	// fmt.Println(contaDoRodrigo.saldo)
 
-	status, valor := contaDoRodrigo.depositar(200)
-	fmt.Println(status, valor)
-	//println(strconv.FormatFloat(contaDoRodrigo.saldo, 'f', 2, 32))
-}
+	// status, valor := contaDoRodrigo.depositar(200)
+	// fmt.Println(status, valor)
 
-func (c *contaCorrente) sacar(valorDoSaque float64) string {
-	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo
-	if podeSacar {
-		c.saldo -= valorDoSaque
-		return "Saque realizado com sucesso"
-	} else {
-		return "Saldo insuficiente"
-	}
-}
+	contaDaSilvia := contas.contaCorrente{Titular: "Silvia", Saldo: 300}
+	contaDoGustavo := contas.contaCorrente{Titular: "Gustavo", Saldo: 100}
 
-func (c *contaCorrente) depositar(valorDoDeposito float64) (string, float64) {
-	podeDepositar := valorDoDeposito > 0
-	if podeDepositar {
-		c.saldo += valorDoDeposito
-		return "Deposito realizado com sucesso", c.saldo
-	} else {
-		return "O valor do deposito menor que zero", c.saldo
-	}
+	status := contaDoGustavo.Transferir(-200, &contaDaSilvia)
+	fmt.Println(status)
+
+	fmt.Println(contaDaSilvia)
+	fmt.Println(contaDoGustavo)
 }
