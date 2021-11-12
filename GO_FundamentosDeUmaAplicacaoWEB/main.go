@@ -21,6 +21,12 @@ insert into produtos (nome, descricao, preco, quantidade) values
 
 */
 
+/*
+go get github.com/lib/pq
+go mod init
+go mod tidy
+*/
+
 import (
 	"database/sql"
 	"html/template"
