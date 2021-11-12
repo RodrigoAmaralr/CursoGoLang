@@ -39,9 +39,16 @@ func main() {
 	// fmt.Println(contaDoBruno)
 
 	///////////////////////////////
-	contaExemplo := contas.ContaCorrente{}
-	contaExemplo.Depositar(100)
+	// contaExemplo := contas.ContaCorrente{}
+	// contaExemplo.Depositar(100)
 
-	fmt.Println(contaExemplo.ObterSaldo())
+	// fmt.Println(contaExemplo.ObterSaldo())
+
+	////////////////
+	contaDoDenis := contas.ContaPoupanca{}
+	contaDoDenis.Depositar(100)
+	contaDoDenis.Sacar(500)
+
+	fmt.Println(contaDoDenis.ObterSaldo())
 
 }
